@@ -15,12 +15,15 @@ class ArticlesController < ApplicationController
 		@article = Article.new
 	end
 	#POST /articles 
-	def create
-		@article = Article.new(title: params[:article][:title], body: params[:article][:body])
+	def create 
+		#Este es el Insert into
+		#Esta es la antigua ->
+		#@article = Article.new(title: params[:article][:title], body: params[:article][:title])
+		@article = Article.new(article_params)
 		if @article.save
 			redirect_to @article
 		else
-			render :new
+		 	render :new
 		end
 	end
 	def destroy
@@ -30,5 +33,9 @@ class ArticlesController < ApplicationController
 	end	
 	def update
 		
+	end
+	private
+	def article_params
+		params.require(:article).permit(:title,:body)
 	end
 end
