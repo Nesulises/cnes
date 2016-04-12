@@ -27,10 +27,16 @@
 			<li type="none" class="col-md">
 				Tecnologia
 			</li>
+			<% if user_signed_in? %>
+				<li type="none" class="col-md">
+					<%= link_to "Cerrar Sessión", destroy_user_session_path, method: :delete %>
+				</li>
+			<%end%>
 		</ul>
 	</nav>
 </header>
-
+<p class="notice"><%= notice %></p>
+	<p class="alert be-red"><%= alert %></p>
 <%= yield %>
 
 </body>
