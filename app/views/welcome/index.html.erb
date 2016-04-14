@@ -1,6 +1,3 @@
-<h1>Bienvenidos a nuestro Blog JA</h1>
-
-<h2>Este es un ejemplo del ciclo 'for'</h2>
-<% [1,2,3,4].each do |number| %>
-	<p>Numero: <%= number %></p>
+<% if user_signed_in? %>
+<h1>Bienvenido <%= current_user.email %> </h1>
 <%end%>
