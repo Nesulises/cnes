@@ -1,0 +1,35 @@
+<header>
+	<nav class="be-red white large-padding">
+		<ul class="no-list row center-xs middle-xs">
+			<li type="none" class="logo col-md">
+				<h1 class="no-margin">
+					<%= link_to "CNestor", root_path %>
+				</h1>
+			</li>
+			<li type="none" class="col-md">
+				<%= link_to "Inicio", root_path %>
+			</li>
+			<li type="none" class="col-md">
+				Diseño
+			</li> 
+			<li type="none" class="col-md" >
+				Programación
+			</li>
+			<li type="none" class="col-md">
+				Tecnologia
+			</li>
+			<% if user_signed_in? %>
+				<li type="none" class="col-md">
+					<%= link_to "Cerrar Sessión", destroy_user_session_path, method: :delete %>
+				</li>
+			<%else%>
+			<li type="none" class="col-md">
+					<%= link_to "Iniciar Sessión", new_user_session_path %>
+				</li>
+				<li type="none" class="col-md">
+					<%= link_to "Crear Cuenta", new_user_registration_path %>
+				</li>
+			<%end%>
+		</ul>
+	</nav>
+</header>
