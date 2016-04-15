@@ -1,7 +1,12 @@
-<h1><%=  @articles.title %></h1>
+<h1><%=  @article.title %></h1>
+<% unless @article.user.nil? %>
+<p>
+	Escrito por: <%= @article.user.email %>
+</p>
+<%end%>
 <div>
-	<%= @articles.body %>
+	<%= @article.body %>
 </div>
 <div>
-	<%= link_to "Editar", edit_article_path(@articles) %>
+	<%= link_to "Editar", edit_article_path(@article) %>
 </div>

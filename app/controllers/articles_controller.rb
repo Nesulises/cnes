@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
 	#GET /articles/:id
 	def show 
 		#Encuentra un registros segun el ID
-		@articles = Article.find(params[:id])
+		@article = Article.find(params[:id])
 	end	
 	#GET /articles/new 
 	def new
@@ -23,7 +23,7 @@ class ArticlesController < ApplicationController
 		#Este es el Insert into
 		#Esta es la antigua ->
 		#@article = Article.new(title: params[:article][:title], body: params[:article][:title])
-		@article = Article.new(article_params)
+		@article = current_user.articles.new(article_params)
 		if @article.save
 			redirect_to @article
 		else
