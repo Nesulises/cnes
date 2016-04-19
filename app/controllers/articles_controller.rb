@@ -12,6 +12,7 @@ class ArticlesController < ApplicationController
 		@article.update_visits_count
 		#Encuen tra un registros segun el ID
 		#@article = Article.find(params[:id])
+		@comment = Comment.new
 	end	
 	#GET /articles/new 
 	def new

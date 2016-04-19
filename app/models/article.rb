@@ -5,7 +5,8 @@
   	# el que se le dio a la clase en la terminal
   	# y tomo el nombre y lo pluraliso o le agrego la "S"
   	# y los campos los va agenara el Active Record
-  	belongs_to :user  
+  	belongs_to :user
+    has_many :comments  
   	validates :title, presence: true, uniqueness: true
   	validates :body, presence: true, length: { minimum: 10 }
     before_save :set_visits_count
